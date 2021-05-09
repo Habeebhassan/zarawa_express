@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock title %}
+
+{% block header %}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container">
+            <h1 class="masthead-heading mb-0">Zarawa Express</h1>
+            <h2 class="masthead-subheading mb-0">Please login to view orders</h2>
+        </div>
+    </div>
+        <!--
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+        -->
+      </header>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <h1>
+            Please Login
+        </h1>
+    </div>
+    <div class="row justify-content-md-center">
+        
+        <p>You must logged in to view orders.</p>
+    </div>
+</div>
+
+<div class="container">
+    <br>
+    <div class="row justify-content-md-center">
+       <form method="post" action="{% url 'login' %}">
+            <table>
+                {{ form|crispy }}
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input type="submit" value="login">
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <!--Not registered yet? <a href="{% url 'register' %}">contact us</a>.-->
+                Must be admin to login <a href="/">Back to Home</a>
+                <br>
+                <br>
+            </p>
+            <input type="hidden" name="next" value="{{ next }}"/>
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+{% endblock content %}

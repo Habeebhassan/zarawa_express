@@ -1,0 +1,289 @@
+{% extends "order/order.html" %}
+{% load static %}
+
+{% block title %}
+All Orders
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <h1> 
+            Order Details
+        </h1>
+    </div>
+</div>
+
+<div class="container">
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <table class="table table-borderless">
+            <tr>
+                <th>
+                    ID:
+                </th>
+                <td>
+                    {{ order.id }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Name:
+                </th>
+                <td>
+                    {{ order.name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Phone Number:
+                </th>
+                <td>
+                    {{ order.phone_number }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Address:
+                </th>
+                <td>
+                    {{ order.pickup_address }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Name
+                </th>
+                <td>
+                    {{ order.pickup_name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Phone No.:
+                </th>
+                <td>
+                    {{ order.pickup_phone }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Dropoff Address:
+                </th>
+                <td>
+                    {{ order.dropoff_address }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Recipient Name
+                </th>
+                <td>
+                    {{ recipient_name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Recipient Phone No.:
+                </th>
+                <td>
+                    {{ order.recipient_phone }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Order Details:
+                </th>
+                <td>
+                    {{ order.order_details }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Submit Date:
+                </th>
+                <td>
+                    {{ order.submitted|date:"d-m-y" }}
+                </td>
+            </tr>
+        </table>
+        <p>
+            <a href='../show'>Back to Order list</a>
+        </p>
+</div>
+    </div>
+
+{% endblock content %}
+
+<!--
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <table class="table table-borderless">
+            <tr>
+                <th>
+                    ID:
+                </th>
+                <td>
+                    {{ order.id }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Name:
+                </th>
+                <td>
+                    {{ order.name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Phone Number:
+                </th>
+                <td>
+                    {{ order.phone_number }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Address:
+                </th>
+                <td>
+                    {{ order.pickup_address }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Name
+                </th>
+                <td>
+                    {{ order.pickup_name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Pickup Phone No.:
+                </th>
+                <td>
+                    {{ order.pickup_phone }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Dropoff Address:
+                </th>
+                <td>
+                    {{ order.dropoff_address }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Recipient Name
+                </th>
+                <td>
+                    {{ recipient_name }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Recipient Phone No.:
+                </th>
+                <td>
+                    {{ order.recipient_phone }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Order Details:
+                </th>
+                <td>
+                    {{ order.order_details }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Submit Date:
+                </th>
+                <td>
+                    {{ order.submitted|date:"d-m-y" }}
+                </td>
+            </tr>
+        </table>
+        <p>
+            <a href='../show'>Back to Order list</a>
+        </p>
+</div>
+    </div>
+
+
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <table class="table table-borderless">
+
+            <tr>
+                <thead class="thead-dark">
+                    <th>
+                        ID:
+                    </th>
+                    <th>
+                        Name:
+                    </th>
+                    <th>
+                        Phone Number:
+                    </th>
+                    <th>
+                        Pickup Address:
+                    </th>
+                    <th>
+                        Pickup Name:
+                    </th>
+                    <th>
+                        Pickup Phone No:
+                    </th>
+                    <th>
+                        Dropoff Address:
+                    </th>
+                    <th>
+                        Reciever's Name:
+                    </th>
+                    <th>
+                        Reciever's Phone No:
+                    </th>
+                    <th>
+                        Order details:
+                    </th>
+                    <th>
+                        Submit Date:
+                    </th>
+                </thead>
+            </tr>
+            {% for order in all_orders %}
+                <tr><td>{{ order.id }}</td></tr>
+                <tr><td>{{ order.name }}</td></tr>
+                <tr><td>{{ order.phone_number }}</td></tr>
+                <tr><td>{{ order.pickup_address }}</td></tr>
+                <tr><td>{{ order.pickup_name }}</td></tr>
+                <tr><td>{{ order.pickup_phone }}</td></tr>
+                <tr><td>{{ order.dropoff_address }}</td></tr>
+                <tr><td>{{ order.dropoff_name }}</td></tr>
+                <tr><td>{{ order.recipient_name }}</td></tr>
+                <tr><td>{{ order.recipient_phone }}</td></tr>
+                <tr><td>{{ order.order_details }}</td></tr>
+                <tr><td>{{ order.submitted|date:"d-m-y" }}</td></tr>
+            {% endfor %}
+            
+        </table>
+        <p>
+            <a href='../show'>Back to Order list</a>
+        </p>
+    </div>
+</div>
+
+-->

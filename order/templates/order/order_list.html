@@ -1,0 +1,53 @@
+{% extends "order/order.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    All Orders
+{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="text-center">
+            <h1>
+                All orders
+            </h1>
+        </div>  
+    </div>
+</div>
+        <br>
+        <br>
+<div class="container">
+    <div class="row">        
+        <table class = "table">
+            <thead class="thead-dark">
+                <th>
+                    ID
+                </th>
+                <th>
+                    Client Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Submitted
+                </th>
+            </thead>
+            
+
+            {% for order in all_orders %}
+                <tr class = "orderrow {% cycle '' 'altrow' %}">
+                    <td><a href="show/{{ order.id }}">{{ order.id }}</a></td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.phone_number }}</td>
+                    <td>{{ order.submitted | date:"d-m-y" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}
